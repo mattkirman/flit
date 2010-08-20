@@ -1,5 +1,5 @@
 module Flit
-  module Help
+  class Help
     USAGE = <<USAGE
 Usage:
   flit COMMAND [options]
@@ -7,8 +7,8 @@ Usage:
 Commands:
   {{commands}}
   
-  -h, --help          # Show this page
-  -v, --version       # Get Flit version information
+  help                # Show this page
+  version             # Get Flit version information
 
 USAGE
     
@@ -23,12 +23,16 @@ USAGE
       commands = []
       Dir.new(commands_dir).each do |f|
         if f.match(/(.*)\.rb/)
-          command = f.gsub(/\.rb/, '')
-          commands << command.ljust(20)
+          begin
+            command = f.gsub(/\.rb/, '')
+            klass = "Flit::Commands::#{command.camelize}"
+            commands << "#{command.ljust(20)}# #{ eval("#{klass}::DESC") }"
+          rescue
+          end
         end
       end
       
-      commands.join("\n  ")
+      commands.sort.join("\n  ")
     end
     
   end

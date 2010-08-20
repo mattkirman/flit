@@ -1,9 +1,0 @@
---- 
-:tags: 
-  :version_prefix: v
-:branches: 
-  :production: production
-  :feature_prefix: feature/
-  :next: staging
-  :bugfix_prefix: bugfix/
-  :bleeding_edge: master

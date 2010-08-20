@@ -3,7 +3,7 @@
 begin
   require "flit/cli"
 rescue LoadError
-  path = File.expand_path('../../', __FILE__)
+  path = File.expand_path('../../lib', __FILE__)
   $:.unshift(path)
   require 'flit/cli'
 end
