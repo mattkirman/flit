@@ -1,8 +1,8 @@
 --- 
 :branches: 
   :bugfix_prefix: bugfix/
-  :staging: staging
   :bleeding_edge: master
+  :staging: staging
   :production: production
   :feature_prefix: feature/
 :tags: 

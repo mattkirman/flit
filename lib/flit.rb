@@ -28,17 +28,17 @@ module Flit
     else
       command = ARGV.first
       
-      #begin
+      begin
         klass = eval "Commands::#{command.camelize}.new"
         klass.extend Commands::Base
-      #  begin
+        begin
           klass.run ARGV[1..-1]
-      #  rescue
-      #    klass.run
-      #  end
-      #rescue
-      #  puts "flit: '#{command}' is not a command. See 'flit help'."
-      #end
+        rescue
+          klass.run
+        end
+      rescue
+        puts "flit: '#{command}' is not a command. See 'flit help'."
+      end
       
     end
   end
