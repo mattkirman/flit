@@ -8,7 +8,7 @@ Commands:
   {{commands}}
   
   help                # Show this page
-  version             # Get Flit version information
+  -v, --version       # Get Flit version information
 
 USAGE
     

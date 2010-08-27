@@ -22,7 +22,7 @@ module Flit
         h = HighLine.new
         
         bleeding_edge_branch_name = h.ask("Branch name for bleeding edge development: ") { |q| q.default = 'master' }
-        next_branch_name = h.ask("Branch name for \"next release\" development: ") { |q| q.default = 'staging' }
+        staging_branch_name = h.ask("Branch name for staging releases: ") { |q| q.default = 'staging' }
         production_branch_name = h.ask("Branch name for production releases: ") { |q| q.default = 'production' }
         
         puts "Name your supporting branch prefixes."
@@ -36,7 +36,7 @@ module Flit
         save_config ({
           :branches => {
             :bleeding_edge => bleeding_edge_branch_name,
-            :next => next_branch_name,
+            :staging => staging_branch_name,
             :production => production_branch_name,
             :feature_prefix => feature_branch_prefix,
             :bugfix_prefix => bugfix_branch_prefix

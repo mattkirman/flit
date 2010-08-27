@@ -15,18 +15,23 @@ module Flit
       
       def is_flit?(path = nil)
         path ||= "#{working_directory}/.flit_config"
-        return File.exists? path
+        File.exists? path
       end
       
       
       def is_git?(path = nil)
         path ||= "#{working_directory}/.git"
-        return File.directory? path
+        File.directory? path
       end
       
       
       def save_config(config)
-        File.open("#{working_direcoty}/.flit_config",'w') { |file| file.puts config.to_yaml }
+        File.open(".flit_config",'w') { |f| f.puts config.to_yaml }
+      end
+      
+      
+      def open_config
+        YAML::load(File.open('.flit_config'))
       end
       
     end
