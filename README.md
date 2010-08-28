@@ -9,7 +9,7 @@ _Flit is an extremely early alpha. Features may be broken or just plain missing,
 
 The easiest way to install Flit is through RubyGems:
 
-    gem install flit
+    gem install flit --pre
 
 
 ##Usage
