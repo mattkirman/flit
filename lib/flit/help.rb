@@ -14,7 +14,7 @@ USAGE
     
     
     def self.display
-      return USAGE.gsub("{{commands}}", available_commands)
+      USAGE.gsub("{{commands}}", available_commands)
     end
     
     
@@ -33,6 +33,30 @@ USAGE
       end
       
       commands.sort.join("\n  ")
+    end
+    
+    
+    def self.display_for_command(klass)
+      command = klass.split(/::/)[-1].downcase
+      
+      help = "Usage:\n  flit #{command}"
+      begin
+        help << " #{eval("#{klass}::USAGE")}"
+      rescue
+      end
+      
+      begin
+        options = eval("#{klass}::OPTIONS")
+        unless options.count == 0
+          help << "\n\nOptions:"
+          options.each do |opt, desc|
+            help << "\n  #{opt.to_s.ljust(20)}# #{desc}"
+          end
+        end
+      rescue
+      end
+      
+      "#{help}\n "
     end
     
   end

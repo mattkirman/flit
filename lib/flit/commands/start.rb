@@ -2,9 +2,16 @@ module Flit
   module Commands
     class Start
       DESC = "Start work on a new feature or bugfix"
+      USAGE = "TYPE NAME"
+      OPTIONS = {
+        :type => "Can be either a feature or bugfix",
+        :name => "The name of your feature or bugfix",
+      }
       
       def run(args)
-        # TODO: Show the help page if no options are set
+        # Gatekeepers
+        fatal "directory isn't a flit repository" unless is_flit?
+        show_help unless args.count == 2
         
         type, name = args
         config = open_config

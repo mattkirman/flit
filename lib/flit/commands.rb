@@ -34,6 +34,12 @@ module Flit
         YAML::load(File.open('.flit_config'))
       end
       
+      
+      def show_help
+        puts Flit::Help.display_for_command(self.class.name)
+        exit(0)
+      end
+      
     end
   end
 end
