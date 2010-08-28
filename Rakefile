@@ -14,7 +14,7 @@ end
 
 
 desc "Install the gem for testing locally"
-task :install => :gem do
+task :install => :repackage do
   version = File.read("VERSION").strip
   system("gem install pkg/flit-#{version}.gem --no-ri --no-rdoc")
 end
