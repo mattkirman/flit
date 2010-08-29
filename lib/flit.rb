@@ -14,6 +14,7 @@ module Flit
     autoload :Start,    "flit/commands/start"
     autoload :Stop,     "flit/commands/stop"
     autoload :Finish,   "flit/commands/finish"
+    autoload :Delete,   "flit/commands/delete"
     autoload :Version,  "flit/commands/version"
   end
   
