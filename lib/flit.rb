@@ -5,6 +5,7 @@ require 'highline'
 
 module Flit
   autoload :Help,     'flit/help'
+  autoload :Hooks,    'flit/hooks'
   autoload :Version,  'flit/version'
   
   
@@ -21,11 +22,15 @@ module Flit
   
   
   def self.exec_script!
+    Hooks.instance.load!
+    Hooks.fire :didStart
+    
     if %w(--version -v).include? ARGV.first
       puts "Flit #{Version::STRING}"
       
     elsif ARGV[0].nil? || %w(help --help -h).include?(ARGV.first)
       puts (ARGV[1].nil?) ? Help.display : Help.display_for_command(ARGV[1])
+      Hooks.fire :didShowHelp
       
     else
       command = ARGV.first
@@ -43,6 +48,8 @@ module Flit
       end
       
     end
+    
+    Hooks.fire :didFinish
   end
   
 end
