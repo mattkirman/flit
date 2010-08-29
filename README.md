@@ -1,6 +1,6 @@
 #Flit
 
-Flit contains super simple branch management extensions for Git. It aims to give quick repository functions to improve a typical Git workflow as described at [http://mattkirman.com/2010/08/27/my-git-workflow-introducing-flit/](http://mattkirman.com/2010/08/27/my-git-workflow-introducing-flit/).
+Flit is a super simple extension manager for Git. It aims to give quick repository functions to improve a typical Git workflow as described at [http://mattkirman.com/2010/08/27/my-git-workflow-introducing-flit/](http://mattkirman.com/2010/08/27/my-git-workflow-introducing-flit/) through a combination of [events](http://github.com/mattkirman/flit/wiki/Events), [commands](http://github.com/mattkirman/flit/wiki/Commands) and [plugins](http://github.com/mattkirman/flit/wiki/Plugins).
 
 _Flit is an extremely early alpha. Features may be broken or just plain missing, but getting this code out into the open-source community where people can start hacking away with it is much more important. If something’s missing just fork the code, add your fix and send me a pull request._
 
@@ -42,6 +42,11 @@ Once your code is finished and you're ready to merge it back into your developme
     flit finish bugfix the_issue_number_of_the_bug
 
 This will pull down changes in master, rebase them into your feature branch and then merge your feature back into master.
+
+
+##Documentation
+
+Please refer to the [Flit wiki](http://github.com/mattkirman/flit/wiki) for full documentation. As with the rest of the project, the documentation is a work in progress so what's written may differ slightly from what's actually on the ground.
 
 
 ##Contributing

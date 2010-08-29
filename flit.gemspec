@@ -4,8 +4,8 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'flit'
   s.version     = version
-  s.summary     = 'Branch management extensions for Git'
-  s.description = 'Flit contains super simple branch management extensions for Git. It aims to give quick repository functions to improve a typical Git workflow.'
+  s.summary     = 'Git extension manager'
+  s.description = 'Flit is a super simple extension manager for Git. It aims to give quick repository functions to improve a typical Git workflow.'
   
   s.required_ruby_version     = '>= 1.8.7'
   s.required_rubygems_version = ">= 1.3.6"
