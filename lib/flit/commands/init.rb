@@ -33,6 +33,7 @@ module Flit
         
         
         # Save our config
+        `mkdir -p .flit .flit/hooks`
         save_config ({
           :branches => {
             :bleeding_edge => bleeding_edge_branch_name,

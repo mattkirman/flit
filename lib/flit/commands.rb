@@ -14,7 +14,7 @@ module Flit
       
       
       def is_flit?(path = nil)
-        path ||= "#{working_directory}/.flit_config"
+        path ||= "#{working_directory}/.flit/config"
         File.exists? path
       end
       
@@ -31,7 +31,7 @@ module Flit
       
       
       def open_config
-        YAML::load(File.open('.flit_config'))
+        YAML::load(File.open('.flit/config'))
       end
       
       
