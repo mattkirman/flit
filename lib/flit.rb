@@ -10,11 +10,11 @@ module Flit
   
   module Commands
     autoload :Base,     "flit/commands"
+    autoload :Delete,   "flit/commands/delete"
+    autoload :Finish,   "flit/commands/finish"
     autoload :Init,     "flit/commands/init"
     autoload :Start,    "flit/commands/start"
     autoload :Stop,     "flit/commands/stop"
-    autoload :Finish,   "flit/commands/finish"
-    autoload :Delete,   "flit/commands/delete"
     autoload :Version,  "flit/commands/version"
   end
   
