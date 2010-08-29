@@ -1,0 +1,1 @@
+This may be something that we do by default in future. However, in theory .flit should only contain repository specific hooks which could be persisted. Any user specific hooks should be kept in ~/.flit instead.
