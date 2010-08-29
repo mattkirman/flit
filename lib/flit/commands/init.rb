@@ -1,7 +1,7 @@
 module Flit
   module Commands
     class Init
-      DESC = "Create a new Flit repository"
+      DESC = "Create a new Flit repository. Must be run from the top level directory in your Git repository."
       
       def run
         # Don't allow us to reinitialise an existing Flit repository

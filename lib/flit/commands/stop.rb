@@ -1,7 +1,7 @@
 module Flit
   module Commands
     class Stop
-      DESC = "Stop work on a feature of bugfix"
+      DESC = "Stop work on a feature or bugfix"
       
       def run(args)
         # TODO: Show the help page if no options are set
