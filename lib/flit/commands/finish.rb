@@ -33,6 +33,8 @@ module Flit
         `git checkout #{config[:branches][:bleeding_edge]}`
         `git merge #{type}/#{name}`
         
+        `flit delete #{type} #{name}`
+        
         puts "\nMerged '#{type}/#{name}' into '#{config[:branches][:bleeding_edge]}'."
         puts "You should now 'git push' your changes."
       end
