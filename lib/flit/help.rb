@@ -7,7 +7,7 @@ Usage:
 Commands:
   {{commands}}
   
-  help                # Show this page
+  help [COMMAND]      # Show this page
   -v, --version       # Get Flit version information
 
 USAGE
@@ -26,7 +26,8 @@ USAGE
           begin
             command = f.gsub(/\.rb/, '')
             klass = "Flit::Commands::#{command.camelize}"
-            commands << "#{command.ljust(20)}# #{ eval("#{klass}::DESC") }"
+            desc = eval("#{klass}::DESC").split('.')[0]
+            commands << "#{command.ljust(20)}# #{desc}"
           rescue
           end
         end
@@ -37,9 +38,21 @@ USAGE
     
     
     def self.display_for_command(klass)
-      command = klass.split(/::/)[-1].downcase
+      if klass.split(/::/).count == 1
+        klass = "Flit::Commands::#{klass.camelize}"
+      end
       
-      help = "Usage:\n  flit #{command}"
+      command = klass.split(/::/)[-1].downcase
+      help = ""
+      
+      begin
+        help << "#{eval("#{klass}::DESC")}\n\n"
+      rescue
+        puts "flit: '#{command}' is not a command. See 'flit help'."
+        exit(0)
+      end
+      
+      help << "Usage:\n  flit #{command}"
       begin
         help << " #{eval("#{klass}::USAGE")}"
       rescue

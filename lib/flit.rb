@@ -23,7 +23,7 @@ module Flit
       puts "Flit #{Version::STRING}"
       
     elsif ARGV[0].nil? || %w(help --help -h).include?(ARGV.first)
-      puts Help.display
+      puts (ARGV[1].nil?) ? Help.display : Help.display_for_command(ARGV[1])
       
     else
       command = ARGV.first
