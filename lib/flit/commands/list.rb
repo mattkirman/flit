@@ -22,7 +22,7 @@ If TYPE is not specified, 'list' will show you details of both features and bugf
         bugfix_branches = []
         other_branches = []
         
-        `git branch`.each do |branch|
+        `git branch`.split("\n").each do |branch|
           indicator = (branch[0,1] == '*') ? '  => ' : '     '
           branch = branch[2..-1].downcase
           split_branch = branch.split('/')

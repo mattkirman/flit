@@ -1,3 +1,6 @@
+== master
+  * Bugfix: Fixed broken 'list' command
+
 == 0.2.pre / 2010-08-29
   * Feature: Added delete, finish and list commands
   * Feature: Commands can now have their own help pages. Accessible via 'flit help COMMAND'
