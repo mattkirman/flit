@@ -1,2 +1,7 @@
-== 0.1.dev / 2010-08-27
+== 0.2.pre / 2010-08-29
+  * Feature: Added delete, finish and list commands
+  * Feature: Commands can now have their own help pages. Accessible via 'flit help COMMAND'
+  * Bugfix: Commands are no longer initialised when loading their help docs
+
+== 0.1.pre / 2010-08-27
   * Developer preview

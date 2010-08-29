@@ -1,5 +1,5 @@
 module Flit
   module Version
-    STRING = "0.1.pre"
+    STRING = "0.2.pre"
   end
 end
