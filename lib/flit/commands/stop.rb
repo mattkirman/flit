@@ -4,8 +4,6 @@ module Flit
       DESC = "Stop work on a feature or bugfix"
       
       def run(args)
-        # TODO: Show the help page if no options are set
-        
         `git checkout #{open_config[:branches][:bleeding_edge]}`
       end
       

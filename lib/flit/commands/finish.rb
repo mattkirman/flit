@@ -23,8 +23,6 @@ module Flit
           end
         end
         
-        #`git checkout #{type}/#{name}` unless type == current_type && name == current_name
-        
         `git checkout #{config[:branches][:bleeding_edge]}` unless current_branch[0] == config[:branches][:bleeding_edge]
         `git pull`
         `git checkout #{type}/#{name}`
