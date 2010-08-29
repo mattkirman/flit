@@ -12,6 +12,8 @@ If TYPE is not specified, 'list' will show you details of both features and bugf
         # Gatekeeper
         fatal "directory isn't a flit repository" unless is_flit?
         
+        Hooks.fire :didStartCommand__list
+        
         type = args[0]
         unless type.nil? || type == 'feature' || type == 'bugfix'
           show_help
@@ -39,6 +41,8 @@ If TYPE is not specified, 'list' will show you details of both features and bugf
         list_branches "Features", feature_branches unless type == 'bugfix'
         list_branches "Bugfixes", bugfix_branches unless type == 'feature'
         list_branches "Other", other_branches if type.nil?
+        
+        Hooks.fire :didFinishCommand__list
       end
       
       private

@@ -13,6 +13,8 @@ module Flit
         fatal "directory isn't a flit repository" unless is_flit?
         show_help unless args.count == 2
         
+        Hooks.fire :didStartCommand__delete
+        
         type, name = args
         config = open_config
         
@@ -21,6 +23,8 @@ module Flit
         if h.agree("Delete #{type} branch '#{name}'? [yn]", true)
           `git branch -d #{type}/#{name}`
         end
+        
+        Hooks.fire :didFinishCommand__delete, {:type => type, :name => name}
       end
       
     end

@@ -13,6 +13,8 @@ module Flit
         fatal "directory isn't a flit repository" unless is_flit?
         show_help unless args.count == 2
         
+        Hooks.fire :didStartCommand__start
+        
         type, name = args
         config = open_config
         
@@ -26,6 +28,8 @@ module Flit
         
         `git branch #{branch_name}` if `git branch`.match(branch_name).nil?
         `git checkout #{branch_name}`
+        
+        Hooks.fire :didFinishCommand__start, {:type => type, :name => name}
       end
       
     end

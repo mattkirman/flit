@@ -9,6 +9,8 @@ module Flit
           fatal "directory is already a flit repository"
         end
         
+        Hooks.fire :didStartCommand__init
+        
         # Don't allow us to reinitialise an existing Git repository
         unless is_git?
           puts "Creating a new repository..."
@@ -48,6 +50,7 @@ module Flit
         })
         
         # Repository created!
+        Hooks.fire :didFinishCommand__init
       end
       
     end

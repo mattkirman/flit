@@ -13,6 +13,8 @@ module Flit
         fatal "directory isn't a flit repository" unless is_flit?
         show_help unless args.count == 2
         
+        Hooks.fire :didStartCommand__finish
+        
         type, name = args
         config = open_config
         
@@ -37,6 +39,8 @@ module Flit
         
         puts "\nMerged '#{type}/#{name}' into '#{config[:branches][:bleeding_edge]}'."
         puts "You should now 'git push' your changes."
+        
+        Hooks.fire :didFinishCommand__finish, {:type => type, :name => name}
       end
       
     end
