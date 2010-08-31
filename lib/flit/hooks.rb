@@ -27,7 +27,7 @@ module Flit
     end
     
     def fire(e, args = {})
-      unless @hooks[e].nil?
+      unless @hooks.nil? || @hooks[e].nil?
         @hooks[e].each do |hook|
           hook.call args
         end
